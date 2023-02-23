@@ -1,0 +1,26 @@
+{
+  "name": "team_generator",
+  "version": "1.0.0",
+  "description": "# Module 12 Object-Oriented Programming: Team Profile Generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sophie-Senge/team_generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sophie-Senge/team_generator/issues"
+  },
+  "homepage": "https://github.com/Sophie-Senge/team_generator#readme",
+  "dependencies": {
+    "jest": "^29.4.3"
+  }
+}
