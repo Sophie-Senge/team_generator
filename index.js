@@ -3,68 +3,51 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
-const fs = require("fs");
-
+const fs = require("fs/promises");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
 const render = require("./src/page-template");
-
-// prompt questions
-
+const questions = require("./src/questions")
 let team = [];
 
-async function questions(){
-  let data = await inquirer.prompt([
-    {
-    type: 'list',
-    name: 'role',
-    message: "Please select your position",
-    choices: ["Manager", "Engineer", "Intern"]
-},
-{
-type: "input",
-name: "officeNumber",
-message: "Enter your office number:",
-when(answers){
-  return answers.role === "Manager";
+const init = async () => {
+  //ask for manager information
+  let data = await inquirer.prompt(questions.addEmployee("manager"))
+  team.push(new Manager(data.name, data.id, data.email, data.officeNumber))
+  menu()
 }
-},
-
-
-])
-
+const menu = async () => {
+  let data = await inquirer.prompt(questions.menu)
+  switch (data.mainChoice) {
+    case "Add an Engineer":
+      addEngineer()
+      break;
+    case "Add an Intern":
+      addIntern()
+      break;
+    default:
+      buildTeam()
+      break;
+  }
 }
 
-questions();
+const addEngineer = async () => {
+  //ask for manager information
+  let data = await inquirer.prompt(questions.addEmployee("engineer"))
+  team.push(new Engineer(data.name, data.id, data.email, data.github))
+  menu()
+}
 
-let htmlDoc = render(team)
+const addIntern = async () => {
+  //ask for manager information
+  let data = await inquirer.prompt(questions.addEmployee("intern"))
+  team.push(new Intern(data.name, data.id, data.email, data.school))
+  menu()
+}
 
+const buildTeam = async () =>{
+  let htmlDoc = render(team)
   await fs.writeFile(outputPath, htmlDoc);
+};
 
-
-
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
-// testing code
-
-
-// startProgram();
-// async function startProgram(){
-
-//   const manager = new Manager("Jakeness", 798, "me@me.com", 9);
-//   team.push(manager);
-
-//   const engineer = new Engineer("Ben", 83983, "pardon@gmail.com", "Sophie-senge");
-//   team.push(engineer);
-
-//   const intern = new Intern("Senge", 83893, "cheesy@chees.conm", "Columbia");
-//   team.push(intern);
-
-  
-//   let htmlDoc = render(team)
-
-//   await fs.writeFile(outputPath, htmlDoc);
-
-// }
-
-
+init()
