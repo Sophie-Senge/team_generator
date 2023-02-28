@@ -1,4 +1,5 @@
 const questions = {
+  // reacurring main menu
   menu: [
     {
       type: 'list',
@@ -8,8 +9,8 @@ const questions = {
     },
   ],
   addEmployee: function (employeeType) {
+    // similar questions across employee type
     const questionBase = [
-      // console.log("Please first enter the information for your Team Manager!"),
       {
         type: 'input',
         name: 'name',
@@ -25,8 +26,9 @@ const questions = {
       {
         type: 'input',
         name: 'email',
-        message: `Please enter the email associated with this ${employeeType}:`
+        message: `Please enter the email of the ${employeeType}:`
       }]
+      // switch statement to filter out the three specific questions
     switch (employeeType) {
       case "manager":
         questionBase.push({
@@ -46,7 +48,7 @@ const questions = {
         questionBase.push({
           type: 'input',
           name: 'school',
-          message: 'Please enter the school:'
+          message: 'Please enter the interns school:'
         })
         break
     }

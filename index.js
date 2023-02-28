@@ -32,14 +32,14 @@ const menu = async () => {
 }
 
 const addEngineer = async () => {
-  //ask for manager information
+  //ask for engineer information
   let data = await inquirer.prompt(questions.addEmployee("engineer"))
   team.push(new Engineer(data.name, data.id, data.email, data.github))
   menu()
 }
 
 const addIntern = async () => {
-  //ask for manager information
+  //ask for intern information
   let data = await inquirer.prompt(questions.addEmployee("intern"))
   team.push(new Intern(data.name, data.id, data.email, data.school))
   menu()
