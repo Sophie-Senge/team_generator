@@ -34,7 +34,7 @@ As a manager a user wants to generate a webpage that displays my team's basic in
 
 ## Mock-Up
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+The following image shows a mock-up of the generated HTML’s appearance and functionality. It features five boxes listing employee names, titles and other specific key info:
 
 ![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./assets/Screenshot%202023-02-28%20at%2010.39.19%20PM.png)
 
@@ -53,7 +53,7 @@ node index.js
 
 ## Future Development
 
-When I have more time I would go in and fix the CSS to make a more appealing layout.
+When I have more time I would like to spend more time with CSS to make the site have a more appealing layout.
 
 ## Author
 
