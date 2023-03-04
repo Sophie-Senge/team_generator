@@ -38,7 +38,7 @@ The following image shows a mock-up of the generated HTML’s appearance and fun
 
 ![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./assets/Screenshot%202023-02-28%20at%2010.39.19%20PM.png)
 
-
+Live Site URL: https://sophie-senge.github.io/team_generator/
 ---
 
 ## Getting Started
